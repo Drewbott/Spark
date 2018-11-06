@@ -5,7 +5,7 @@ var geocoding = new require('reverse-geocoding-google');
 var key ="AIzaSyCW-k8IgEVhb7dBDhlguI6pbmXVT2UEFMQ"
 
 router.post("/", (req, res) => {
-  console.log("hit")
+  console.log("local")
   var config = {
     'latitude': req.body.lat,
     'longitude': req.body.lng,
