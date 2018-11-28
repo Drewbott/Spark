@@ -60,9 +60,14 @@ class SimpleModal extends React.Component {
     }
     else if (this.props.incident === "Flood") {
         axios
-        .get("https://api.data.charitynavigator.org/v2/Organizations?app_id=6b3b6e94&app_key=9d523e68a9f651834c7e025333070333&search=direct%20relief&searchType=NAME_ONLY&rated=true&minRating=3")
+        .get("https://api.data.charitynavigator.org/v2/Organizations?app_id=6b3b6e94&app_key=9d523e68a9f651834c7e025333070333&search=Red%20Cross&searchType=NAME_ONLY&rated=true&minRating=3")
         .then(res => this.setState({info: res}))    
     }
+    else if (this.props.incident === "Flash Flood") {
+      axios
+      .get("https://api.data.charitynavigator.org/v2/Organizations?app_id=6b3b6e94&app_key=9d523e68a9f651834c7e025333070333&search=Red%20Cross&searchType=NAME_ONLY&rated=true&minRating=3")
+      .then(res => this.setState({info: res}))    
+  }
     else if (this.props.incident === "Hurricane") {
         axios
         .get("https://api.data.charitynavigator.org/v2/Organizations?app_id=6b3b6e94&app_key=9d523e68a9f651834c7e025333070333&search=all%20hands%20and%20hearts%20smart%20response&searchType=NAME_ONLY&rated=true&minRating=3")
