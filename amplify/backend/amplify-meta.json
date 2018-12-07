@@ -1,0 +1,90 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "park-20181206140240-authRole",
+			"UnauthRoleArn": "arn:aws:iam::934907612879:role/park-20181206140240-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::934907612879:role/park-20181206140240-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "park-20181206140240-deployment",
+			"UnauthRoleName": "park-20181206140240-unauthRole",
+			"StackName": "park-20181206140240",
+			"StackId": "arn:aws:cloudformation:us-west-2:934907612879:stack/park-20181206140240/a6c24d90-f9a2-11e8-a605-503f2a2ceee6"
+		}
+	},
+	"storage": {
+		"dynamoca229530": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/park-20181206140240-deployment/amplify-cfn-templates/storage/dynamoca229530-cloudformation-template.json",
+				"logicalId": "storagedynamoca229530"
+			},
+			"lastPushTimeStamp": "2018-12-06T22:09:54.279Z",
+			"output": {
+				"PartitionKeyName": "spark",
+				"Region": "us-west-2",
+				"Arn": "arn:aws:dynamodb:us-west-2:934907612879:table/dynamoca229530",
+				"PartitionKeyType": "S",
+				"Name": "dynamoca229530"
+			},
+			"lastPushDirHash": "GPWVLbEOLqxYSUd5RqR6hqt0SXo="
+		}
+	},
+	"function": {
+		"sparkc82a8243": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "dynamoca229530",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2018-12-06T22:06:32.282Z",
+			"lastPackageTimeStamp": "2018-12-06T22:06:36.735Z",
+			"distZipFilename": "sparkc82a8243-1544133992-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/park-20181206140240-deployment/amplify-cfn-templates/function/sparkc82a8243-cloudformation-template.json",
+				"logicalId": "functionsparkc82a8243"
+			},
+			"lastPushTimeStamp": "2018-12-06T22:09:54.279Z",
+			"output": {
+				"Region": "us-west-2",
+				"Arn": "arn:aws:lambda:us-west-2:934907612879:function:sparkc82a8243",
+				"Name": "sparkc82a8243"
+			},
+			"lastPushDirHash": "THi73Ad7a9pWT8Ait5WHJHQQJoA="
+		}
+	},
+	"api": {
+		"api": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "sparkc82a8243",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/park-20181206140240-deployment/amplify-cfn-templates/api/api-cloudformation-template.json",
+				"logicalId": "apiapi"
+			},
+			"lastPushTimeStamp": "2018-12-06T22:09:54.279Z",
+			"output": {
+				"ApiName": "api",
+				"RootUrl": "https://fbzr7zvodj.execute-api.us-west-2.amazonaws.com/Prod"
+			},
+			"lastPushDirHash": "uJ/onV6WUZK3a7IIAuXiw/VUYnA="
+		}
+	}
+}

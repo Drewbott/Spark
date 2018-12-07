@@ -1,0 +1,5 @@
+{
+    "tableName": "dynamoca229530",
+    "partitionKeyName": "spark",
+    "partitionKeyType": "S"
+}
