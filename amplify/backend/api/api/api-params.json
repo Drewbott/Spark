@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "sparkc82a8243",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "api",
+    "apiName": "spark891acd7c",
+    "functionArns": [
+        {
+            "lambdaFunction": "sparkc82a8243"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "park-20181206140240-authRole",
+        "unAuthRoleName": "park-20181206140240-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "sparkc82a8243",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
